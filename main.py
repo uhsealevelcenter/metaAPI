@@ -24,25 +24,24 @@ async def show_raw():
 
 @app.get("/select2")
 async def create_sel2():
-    df = load_meta()
+    df,foo = load_meta()
     results = []
 
     for index, row in df.iterrows():
         if row['fd_span']['oldest'] != None:
-            d = {}
-            # s = '{{"id":"{}","text":"{} {}, {}"}}'.format(str(row['uhslc_id']).zfill(3),str(row['uhslc_id']).zfill(3),row['name'],row['country'])
+            #d = {}
             d = {"id": str(row['uhslc_id']).zfill(3),
                  "text": str(row['uhslc_id']).zfill(3) + ' ' + row['name'] + ' ' + row['country']}
             results.append(d)
 
-    results = {
+    result = {
         "results": results,
         "pagination": {
             "more": True
         }
     }
 
-    return results
+    return result
 
 @app.get("/hello/{name}")
 async def say_hello(name: str):
