@@ -31,7 +31,7 @@ async def create_sel2():
         if row['fd_span']['oldest'] != None:
             #d = {}
             d = {"id": str(row['uhslc_id']).zfill(3),
-                 "text": str(row['uhslc_id']).zfill(3) + ' ' + row['name'] + ' ' + row['country']}
+                 "text": str(row['uhslc_id']).zfill(3) + ' ' + row['name'] + ', ' + row['country']}
             results.append(d)
 
     result = {
