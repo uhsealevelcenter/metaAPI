@@ -1,0 +1,15 @@
+from multiprocessing import cpu_count
+
+# Socket Path
+bind = 'unix:/srv/apps/metaAPI/gunicorn.sock'
+
+# Worker Options
+# workers = cpu_count() + 1
+workers = 2
+worker_class="uvicorn.workers.UvicornWorker"
+
+# Logging Options
+loglevel="debug"
+accesslog = '/srv/apps/metaAPI/access_log'
+errorlog =  '/srv/apps/metaAPI/error_log'
+
